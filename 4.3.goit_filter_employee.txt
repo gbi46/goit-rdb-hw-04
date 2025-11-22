@@ -1,0 +1,17 @@
+SELECT COUNT(*) AS rows_emp_4_10
+FROM employees e
+INNER JOIN orders o
+    ON e.employee_id = o.employee_id
+INNER JOIN customers cst
+    ON o.customer_id = cst.id
+INNER JOIN shippers sh
+    ON o.shipper_id = sh.id
+INNER JOIN order_details od
+    ON o.id = od.order_id
+INNER JOIN products p
+    ON od.product_id = p.id
+INNER JOIN categories cat
+    ON p.category_id = cat.id
+INNER JOIN suppliers s
+    ON p.supplier_id = s.id
+WHERE e.employee_id BETWEEN 4 AND 10;
