@@ -1,0 +1,20 @@
+SELECT
+    cat.name              AS category_name,
+    COUNT(*)              AS rows_in_group,
+    AVG(od.quantity)      AS avg_quantity
+FROM employees e
+INNER JOIN orders o
+    ON e.employee_id = o.employee_id
+INNER JOIN customers cst
+    ON o.customer_id = cst.id
+INNER JOIN shippers sh
+    ON o.shipper_id = sh.id
+INNER JOIN order_details od
+    ON o.id = od.order_id
+INNER JOIN products p
+    ON od.product_id = p.id
+INNER JOIN categories cat
+    ON p.category_id = cat.id
+INNER JOIN suppliers s
+    ON p.supplier_id = s.id
+GROUP BY cat.name;
