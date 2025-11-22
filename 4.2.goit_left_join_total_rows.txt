@@ -1,0 +1,16 @@
+SELECT COUNT(*) AS total_rows_with_left
+FROM employees e
+LEFT JOIN orders o
+    ON e.employee_id = o.employee_id
+LEFT JOIN customers cst
+    ON o.customer_id = cst.id
+LEFT JOIN shippers sh
+    ON o.shipper_id = sh.id
+LEFT JOIN order_details od
+    ON o.id = od.order_id
+LEFT JOIN products p
+    ON od.product_id = p.id
+LEFT JOIN categories cat
+    ON p.category_id = cat.id
+LEFT JOIN suppliers s
+    ON p.supplier_id = s.id;
