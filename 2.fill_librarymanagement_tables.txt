@@ -1,0 +1,27 @@
+USE LibraryManagement;
+
+-- authors
+INSERT INTO authors (author_name)
+VALUES ('Джордж Орвелл'),
+       ('Стівен Кінг');
+
+-- genres
+INSERT INTO genres (genre_name)
+VALUES ('Антиутопія'),
+       ('Жахи');
+
+-- books
+INSERT INTO books (title, publication_year, author_id, genre_id)
+VALUES ('1984', 1949, 1, 1),
+       ('Сяйво', 1977, 2, 2);
+
+-- users
+INSERT INTO users (username, email)
+VALUES ('ivan_petrov', 'ivan@example.com'),
+       ('anna_smith', 'anna@example.com');
+
+-- borrowed_books
+INSERT INTO borrowed_books (book_id, user_id, borrow_date, return_date)
+VALUES 
+    (1, 1, '2025-11-01', '2025-11-15'),
+    (2, 2, '2025-11-10', NULL); -- NULL, якщо книжку ще не повернули
